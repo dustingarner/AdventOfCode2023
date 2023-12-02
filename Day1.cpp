@@ -88,9 +88,9 @@ int calibration(std::string fileName, int (*func)(std::string)){
 
 
 int main(){
-    std::cout << "Test Old: " << calibration("Test.txt", &getCalibration) << std::endl;
-    std::cout << "Test New: " << calibration("Test.txt", &getNewCalibration) << std::endl;
+    std::cout << "Test Old: " << calibration("1_Test.txt", &getCalibration) << std::endl;
+    std::cout << "Test New: " << calibration("1_Test.txt", &getNewCalibration) << std::endl;
 
-    std::cout << "Calibration Old: " << calibration("CalibrationValues.txt", &getCalibration) << std::endl;
-    std::cout << "Calibration New: " << calibration("CalibrationValues.txt", &getNewCalibration) << std::endl;
+    std::cout << "Calibration Old: " << calibration("1_CalibrationValues.txt", &getCalibration) << std::endl;
+    std::cout << "Calibration New: " << calibration("1_CalibrationValues.txt", &getNewCalibration) << std::endl;
 }
