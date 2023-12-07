@@ -1,12 +1,6 @@
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <vector>
+#include "Utils.h"
+#include "Day3.h"
 
-
-int char_to_int(char num){
-    return num - 48;
-} 
 
 bool isSymbol(char character){
     if(isdigit(character)){
@@ -16,45 +10,6 @@ bool isSymbol(char character){
         return false;
     }
     return true;
-}
-
-int getStartInd(const std::string &row, int ind){
-    int startInd = 0;
-    for(int i = ind; i >= 0; i--){
-        if(isdigit(row[i])){
-            startInd = i;
-        }
-        else{
-            break;
-        }
-    }
-    return startInd;
-}
-
-int getEndInd(const std::string &row, int ind){
-    int endInd = ind;
-    for(int i = ind; i < row.length(); i++){
-        if(isdigit(row[i])){
-            endInd = i;
-        }
-        else{
-            break;
-        }
-    }
-    return endInd;
-}
-
-int getNumber(const std::string &row, int ind){
-    int startInd = getStartInd(row, ind);
-    int endInd = getEndInd(row, ind);
-    int num = 0;
-    int multiplier = 1;
-    for(int i = endInd; i >= startInd; i--){
-        char character = row[i];
-        num += char_to_int(character) * multiplier;
-        multiplier *= 10;
-    }
-    return num;
 }
 
 bool isPart(const std::vector<std::string> &parts, int row, int startInd){
@@ -213,7 +168,7 @@ int gearRatioFromFile(std::string fileName){
     return sumGearRatios(parts);
 }
 
-int main(){
+void day3answers(){
     std::cout << "Test Parts: " << sumPartsFromFile("3_Test.txt") << std::endl;
     std::cout << "Actual Parts: " << sumPartsFromFile("3_EngineParts.txt") << std::endl;
 

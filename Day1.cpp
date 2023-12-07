@@ -1,12 +1,6 @@
-#include <iostream>
-#include <string>
-#include <fstream>
-#include <vector>
+#include "Utils.h"
+#include "Day1.h"
 
-
-int char_to_int(char num){
-    return num - 48;
-}
 
 int search(std::string code, std::vector<std::string> subStrings){
     int firstDig;
@@ -32,8 +26,6 @@ int search(std::string code, std::vector<std::string> subStrings){
     return num;
 }
 
-
-
 int getCalibration(std::string code){
     int num1;
     int num2;
@@ -55,9 +47,8 @@ int getCalibration(std::string code){
     return (num1 * 10) + num2;
 }
 
-
 int getNewCalibration(std::string code){
-    std::vector<std::string> numbers{"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    std::vector<std::string> numbers {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
     int num1 = search(code, numbers);
 
     for(int i = 0; i < numbers.size(); i++){
@@ -70,7 +61,6 @@ int getNewCalibration(std::string code){
 
     return (num1 * 10) + num2;
 }
-
 
 int calibration(std::string fileName, int (*func)(std::string)){
     int sum = 0;
@@ -86,11 +76,10 @@ int calibration(std::string fileName, int (*func)(std::string)){
     return sum;
 }
 
-
-int main(){
-    std::cout << "Test Old: " << calibration("1_Test.txt", &getCalibration) << std::endl;
-    std::cout << "Test New: " << calibration("1_Test.txt", &getNewCalibration) << std::endl;
-
+void day1answers(){
+    std::cout << "Test Old: " << calibration("1_Test1.txt", &getCalibration) << std::endl;
     std::cout << "Calibration Old: " << calibration("1_CalibrationValues.txt", &getCalibration) << std::endl;
+
+    std::cout << "Test New: " << calibration("1_Test2.txt", &getNewCalibration) << std::endl;
     std::cout << "Calibration New: " << calibration("1_CalibrationValues.txt", &getNewCalibration) << std::endl;
 }

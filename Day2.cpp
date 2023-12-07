@@ -1,11 +1,6 @@
-#include <iostream>
-#include <string>
-#include <fstream>
+#include "Utils.h"
+#include "Day2.h"
 
-
-int char_to_int(char num){
-    return num - 48;
-}
 
 int colonIndex(std::string game){
     int colon = 0;
@@ -17,7 +12,6 @@ int colonIndex(std::string game){
     }
     return colon;
 }
-
 
 int colorIndex(std::string game, int start_index){
     for(int i = start_index; i < game.length(); i++){
@@ -46,7 +40,6 @@ int cubeQuantity(std::string game, int start_index){
     }
     return sum;
 }
-
 
 int gameNumber(std::string game){
     int colon = colonIndex(game);
@@ -87,7 +80,6 @@ bool gamePossible(std::string game){
     return true;
 }
 
-
 int possibleGames(std::string fileName){
     int sum = 0;
     std::fstream txtfile;
@@ -104,7 +96,6 @@ int possibleGames(std::string fileName){
     txtfile.close();
     return sum;
 }
-
 
 int cubePower(std::string game){
     int minR = 0, minG = 0, minB = 0;
@@ -143,8 +134,7 @@ int sumPowers(std::string fileName){
     return sum;
 }
 
-
-int main(){
+void day2answers(){
     std::cout << "Possible Test: " << possibleGames("2_Test.txt") << std::endl;
     std::cout << "Possible Actual: " << possibleGames("2_CubeGame.txt") << std::endl;
     std::cout << "Power Test: " << sumPowers("2_Test.txt") << std::endl;
